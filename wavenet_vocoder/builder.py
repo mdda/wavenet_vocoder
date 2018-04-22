@@ -20,7 +20,8 @@ def wavenet(out_channels=256,
             scalar_input=False,
             use_speaker_embedding=True,
             ):
-    from wavenet_vocoder import WaveNet
+    #from wavenet_vocoder import WaveNet
+    from wavenet_vocoder import WaveRed as WaveNet
 
     model = WaveNet(out_channels=out_channels, layers=layers, stacks=stacks,
                     residual_channels=residual_channels,
