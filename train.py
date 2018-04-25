@@ -644,6 +644,9 @@ def __train_step(phase, epoch, global_step, global_test_step,
     # Apply model: Run the model in regular eval mode
     # NOTE: softmax is handled in F.cross_entrypy_loss
     # y_hat: (B x C x T)
+    
+    if hasattr(model, 'init_hidden'):
+        model.init_hidden(x)  # x is used for batch_size and cuda-ness
 
     y_hat = model(x, c=c, g=g, softmax=False)
 
